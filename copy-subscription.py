@@ -1,29 +1,20 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import requests
+import sys
 
 print('''READ ME:
-    Follow the steps given on my repository before running this file
-    
-    If you have done that, confirm the files:
-    username1.txt
-    username2.txt
-    password1.txt
-    password2.txt
-    clientid.txt
-    secret.txt
-    are in the same folder in which this file is.''')
 
-input("Press Enter if above conditions are satisfied...\n")
-
-def login(op, auth):
+    Follow the steps given on my repository before running this script
     
-    with open('password'+str(op)+'.txt', 'r') as f:
-        pw = f.read()
-    with open('username'+str(op)+'.txt', 'r') as f:
-        usrnm = f.read()
-        
+    Ensure you have Client ID and Secret with you.
+
+    To paste in console use Ctrl+Shift+V
+
+    Old Account = Account to move from
+    New Account = Account to move to''')
+
+input("\nPress enter to get started...\n")
+
+def login(auth, usrnm, pw):
     headers = {'User-Agent': 'MyAPI/0.0.1'}
     
     res = requests.post('https://www.reddit.com/api/v1/access_token',
@@ -32,23 +23,31 @@ def login(op, auth):
                                 'username': usrnm,
                                 'password': pw}, 
                         headers = headers)
-    TOKEN = res.json()['access_token']
-    headers['Authorization'] = f'bearer {TOKEN}'
+    if res.status_code == 200:
+        TOKEN = res.json()['access_token']
+        headers['Authorization'] = f'bearer {TOKEN}'
+    else:
+        sys.exit('\n\nAuthentication Error, exiting...')
     
     return headers
 
-with open('clientid.txt', 'r') as f:
-    CLIENT_ID = f.read()
-with open('secret.txt', 'r') as f:
-    SECRET_KEY = f.read()   
+CLIENT_ID = input("Enter Client ID: ")
+SECRET_KEY = input("Enter Secret: ")
+
+usr1 = input("\nEnter username of old account: ")
+ps1 = input("Enter password of old account: ")
+
+usr2 = input("\nEnter username of new account: ")
+ps2 = input("Enter password of new account: ")
+
+print("Authenticating...", end="")
+
 auth = requests.auth.HTTPBasicAuth(CLIENT_ID, SECRET_KEY)
 
-print('Logging in...', end='')
+headers_from = login(auth, usr1, ps1)
+headers_to = login(auth, usr2, ps2)
 
-headers_from = login(1, auth)
-headers_to = login(2, auth)
-
-print('success')
+print('success!\n')
 
 # Fetch list of subreddits from old account
 
@@ -93,7 +92,7 @@ def subscribe(name):
 
 
 fails = []
-print('Subscribing to:')
+print('\n\nSubscribing to:')
 count = 1
 for subreddit in subreddits:
     print('('+str(count)+'/'+str(total)+')'+' '+subreddit[1]+"...",end='')
