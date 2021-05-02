@@ -6,7 +6,9 @@ password.txt
 username.txt
 clientid.txt
 secret.txt
-multiredditlink.txt
+fails.txt
+*.ipynb
+
 
 MANIFEST
 build
