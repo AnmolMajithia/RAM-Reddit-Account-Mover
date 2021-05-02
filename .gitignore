@@ -1,7 +1,6 @@
 secret.txt
 fails.txt
 *.ipynb
-.gitignore
 
 
 MANIFEST
