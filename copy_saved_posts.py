@@ -53,6 +53,5 @@ def autosaver(saved, headers_to):
 if __name__ == '__main__':
     print_readme()
     login_details = logincaller()
-    saved = fetch_saved_posts(login_details[0], login_details[2])
-    autosaver(saved, login_details[1])
+    autosaver(fetch_saved_posts(login_details[0], login_details[2]), login_details[1])
     print('\n\n\n     SUCCESS!!!')

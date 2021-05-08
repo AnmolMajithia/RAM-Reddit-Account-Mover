@@ -28,7 +28,7 @@ def login(auth, usrnm, pw):
         TOKEN = res.json()['access_token']
         headers['Authorization'] = f'bearer {TOKEN}'
     else:
-        sys.exit('\n\nAuthentication Error, exiting...')
+        sys.exit('\n\nAuthentication Error, exiting...\n')
     
     return headers
 
@@ -124,6 +124,5 @@ def autosubscriber(subreddits, headers_to):
 if __name__ == '__main__':
     print_readme()
     login_details = logincaller()
-    subreddits = fetch_subscribed_subreddits(login_details[0])
-    autosubscriber(subreddits, login_details[1])
+    autosubscriber(fetch_subscribed_subreddits(login_details[0]), login_details[1])
     print('\n\n\n     SUCCESS!!!')

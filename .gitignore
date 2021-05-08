@@ -2,7 +2,6 @@ secret.txt
 fails.txt
 *.ipynb
 
-
 MANIFEST
 build
 dist
