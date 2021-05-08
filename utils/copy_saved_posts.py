@@ -1,8 +1,6 @@
 import requests
 import sys
 
-from copy_subscription import logincaller, print_readme
-
 def fetch_saved_posts(headers_from, usr1):
     print('Fetching saved posts...')
 
@@ -51,6 +49,7 @@ def autosaver(saved, headers_to):
         print(str(fails)+" items failed to save, probably because they belonged to quarantined communities or the original post has been deleted")
 
 if __name__ == '__main__':
+    from copy_subscription import logincaller, print_readme
     print_readme()
     login_details = logincaller()
     autosaver(fetch_saved_posts(login_details[0], login_details[2]), login_details[1])

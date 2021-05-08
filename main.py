@@ -1,8 +1,8 @@
 import requests
 import sys
 
-from copy_subscription import print_readme, logincaller, fetch_subscribed_subreddits, autosubscriber
-from copy_saved_posts import fetch_saved_posts, autosaver
+from utils.copy_subscription import print_readme, logincaller, fetch_subscribed_subreddits, autosubscriber
+from utils.copy_saved_posts import fetch_saved_posts, autosaver
 
 if __name__ == '__main__':
     print_readme()
