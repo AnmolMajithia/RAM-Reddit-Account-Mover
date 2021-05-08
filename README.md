@@ -1,9 +1,6 @@
 # RAM - Reddit Account Mover
 
-### DEVELOPMENT UNDER PROGRESS
-
-Once completed, this should be able to relatively easily move all your subscriptions and saved posts from one user account to the other.
-Maybe more if I get better ideas or you demand for something.
+Easily move all your subscriptions and saved posts from one user account to the other. Maybe more if I get better ideas or you demand for something.
 
 ## What Works :
 - [x] Subscription copying from one account to the other
