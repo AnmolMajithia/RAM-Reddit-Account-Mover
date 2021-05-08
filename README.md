@@ -1,4 +1,4 @@
-# Reddit Account Mover
+# RAM - Reddit Account Mover
 
 ### DEVELOPMENT UNDER PROGRESS
 
