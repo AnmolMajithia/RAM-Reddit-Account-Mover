@@ -1,3 +1,6 @@
+import requests
+import sys
+
 def print_readme():
     print('''READ ME:
 

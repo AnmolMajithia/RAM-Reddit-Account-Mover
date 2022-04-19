@@ -1,3 +1,6 @@
+import requests
+import sys
+
 def fetch_saved_posts(headers_from, usr1):
     print('Fetching saved posts...')
 
