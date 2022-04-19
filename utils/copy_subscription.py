@@ -122,8 +122,6 @@ def autosubscriber(subreddits, headers_to):
             print(fail)
 
 if __name__ == '__main__':
-    import requests
-    import sys
     print_readme()
     login_details = logincaller()
     autosubscriber(fetch_subscribed_subreddits(login_details[0]), login_details[1])
