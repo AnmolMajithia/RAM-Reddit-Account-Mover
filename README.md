@@ -18,6 +18,7 @@ Let me know if I should make an android app later which would make this much eas
     1. Enter any name you want
     2. Select script
     3. Click on create app
+    4. If asked for "redirect uri" just enter "https://www.google.com/"
   - In the new box that just formed:
     1. Click in the add developer text field and enter username of new account.
     2. The word below "personal use script" is your **Client ID**
